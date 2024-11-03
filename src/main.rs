@@ -28,7 +28,7 @@ async fn main() {
     let mut mint_address_count = 0;
     let http_client = Client::new();
 
-    println!("开始监控地址: {}", address_str);
+    println!("开始监控Pump.fun: Raydium Migration");
 
     loop {
         let config = GetConfirmedSignaturesForAddress2Config {
