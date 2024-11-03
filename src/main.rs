@@ -17,17 +17,15 @@ use reqwest::Client;
 #[tokio::main]
 async fn main() {
     let api_key = ""; // 替换为您的实际 helius API 密钥
+    let discord_webhook_url = ""; // 替换为您的 Discord Webhook URL
     let rpc_url = format!("https://rpc.helius.xyz?api-key={}", api_key);
-
     let address_str = "39azUYFWPz3VHgKCf3VChUwbpURdCHRxjWVowf5jUJjg"; //Pump.fun-Raydium 迁移地址
     let address = Pubkey::from_str(address_str).expect("无效的公钥");
-
     let rpc_client = RpcClient::new(&rpc_url);
     let mut last_processed_signature = None;
     let raydium_liquidity_pool_owner = "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8";
     let excluded_mint_address = "So11111111111111111111111111111111111111112";
     let mut mint_address_count = 0;
-    let discord_webhook_url = ""; // 替换为您的 Discord Webhook URL
     let http_client = Client::new();
 
     println!("开始监控地址: {}", address_str);
